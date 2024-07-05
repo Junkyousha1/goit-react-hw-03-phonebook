@@ -9,25 +9,18 @@ class ContactForm extends Component {
 
   handleChange = name => e => {
     const { target } = e;
-
-    this.setState(() => ({
-      [name]: target.value,
-    }));
+    this.setState({ [name]: target.value });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-
     const { onSubmit } = this.props;
     onSubmit(this.state);
     this.resetForm();
   };
 
   resetForm = () => {
-    this.setState(() => ({
-      name: '',
-      number: '',
-    }));
+    this.setState({ name: '', number: '' });
   };
 
   render() {
@@ -59,7 +52,6 @@ class ContactForm extends Component {
             required
           />
         </label>
-
         <button type="submit" className={styles.button}>
           Add contact
         </button>
